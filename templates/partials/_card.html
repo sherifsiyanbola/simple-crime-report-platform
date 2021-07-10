@@ -1,0 +1,33 @@
+{% load static %}
+    <!-- Card for details -->
+    {% comment %} male card start {% endcomment %}
+    <div class="card my-2 mx-2 boy-card {% if 'detail' in request.path %} mx-auto w-25 {% endif %}">
+    {% if contact.treated == True %}<h4 class="heading font-weight-light text-center bg-warning">This report has been treated!</h4>
+    {% else %}
+    <p class="btn btn-secondary">This report is being looked into.</p>
+    {% endif %}
+      <img src="{% if contact.image %}
+      {{contact.image.url}}
+      {% else %}
+      {% static 'images/crime.jpeg'%}
+      {% endif %}" class="img-fluid" />
+      <div class="card-header">
+        <a href="{% url 'detail' contact.id %}" class="text-white header-link"
+          ></i> {{contact.crime_title}} </a
+        >
+        
+      </div>
+      <div class="card-body pb-0">
+        <p>
+          
+          <a href="#">{{contact.crime_description}}</a>
+        </p>
+        <p>
+          
+          <a href="tel:{{contact.number}}">{{contact.crime_location}}</a>
+        </p>
+        </i> {{contact.crime_lga}}</p>
+      </div>
+    </div>
+    {% comment %} male card ends {% endcomment %}
+    <!-- Card for details ends -->

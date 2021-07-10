@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Search Result
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h3 class="heading font-weight-light">Here are your reports</h3>
+    <hr />
+</div>
+  <div class="container main-part">
+
+
+  {% for contact in contacts%}
+    {% include 'partials/_card.html' %}
+  {% endfor %}
+
+  {% if contacts %}
+  {% else %}
+  <p class="d-block font-weight-light my-2 heading">You have not made any report yet</p>
+  {% endif %}
+
+    
+</div>
+    
+{% endblock content %}
